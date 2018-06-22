@@ -1,6 +1,6 @@
 # Harmony
 
-A bot built on top of [Discord.io](https://github.com/izy521/discord.io).
+A bot built on top of [Discord.js](https://discord.js.org).
 
 ## Installation
 Install dependencies

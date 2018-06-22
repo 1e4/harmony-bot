@@ -1,3 +1,5 @@
+let Discord = require('discord.js');
+
 class BaseCommand {
 
     constructor(message) {
@@ -14,10 +16,14 @@ class BaseCommand {
         // Setup a shortcut to access the channel the message was sent in
         this.channel = message.channel;
 
-        //Setup a shortcut to access guilds
+        // Setup a shortcut to access the guild
         this.guild = message.guild;
 
+        // Shortcut for all channels in the guild
         this.allChannels = message.guild.channels;
+
+        // Get mentions for the message
+        this.mentions = message.mentions;
 
         // Split the chat into arguments
         this.args = message.content.split(' ').map((value, index, array) => {
@@ -27,6 +33,10 @@ class BaseCommand {
 
     getChannel(channelId) {
         return this.allChannels.find('id', channelId)
+    }
+
+    findUserInMessage(messageId) {
+
     }
 }
 

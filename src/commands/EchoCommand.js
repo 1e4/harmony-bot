@@ -17,7 +17,7 @@ class EchoCommand extends BaseCommand {
             .setTimestamp()
             .setFooter(this.author.username + "#" + this.author.discriminator);
 
-        this.rawMessage.guild.channels.find('id', config.staffGeneralLogChannel).send({
+        this.getChannel(config.staffGeneralLogChannel).send({
             embed: embed
         })
     }

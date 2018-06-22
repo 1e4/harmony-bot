@@ -14,10 +14,19 @@ class BaseCommand {
         // Setup a shortcut to access the channel the message was sent in
         this.channel = message.channel;
 
+        //Setup a shortcut to access guilds
+        this.guild = message.guild;
+
+        this.allChannels = message.guild.channels;
+
         // Split the chat into arguments
         this.args = message.content.split(' ').map((value, index, array) => {
             return value.toLowerCase()
         });
+    }
+
+    getChannel(channelId) {
+        return this.allChannels.find('id', channelId)
     }
 }
 

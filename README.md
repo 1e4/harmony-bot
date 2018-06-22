@@ -9,7 +9,7 @@ Install dependencies
 yarn install
 ```
 
-Update your `.env` file
+Copy `src/.env.example` to `src/.env` in here you set your environment variables
 
 Run the server
 

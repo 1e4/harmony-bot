@@ -5,8 +5,6 @@ const fs = require('fs');
 const filters = require(__dirname + '\\config\\filters');
 const config = require(__dirname + '\\config\\config');
 
-console.log(filters);
-
 // Login with the bot
 client.login(process.env.DISCORD_TOKEN);
 
@@ -17,6 +15,7 @@ client.on('ready', function (event) {
 
 // Filter for commands and pass them through
 client.on('message', function (message) {
+
     // Filter any messages
     for (let i = 0; i < filters.length; i++) {
         let filterPath = __dirname + `\\filters\\${filters[i]}.js`;
@@ -49,6 +48,8 @@ client.on('message', function (message) {
             c = new m(message);
 
         c.run();
+
+
     }
     else {
         console.log('No command found', commandPath);

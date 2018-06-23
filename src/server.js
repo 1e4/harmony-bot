@@ -10,7 +10,9 @@ client.login(process.env.DISCORD_TOKEN);
 
 // Once ready give some feedback
 client.on('ready', function (event) {
-    console.log('Harmony listening in.')
+    console.log('Harmony listening in.');
+
+    client.user.setStatus('Keeping the peace');
 });
 
 // Filter for commands and pass them through

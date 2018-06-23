@@ -4,6 +4,7 @@ const client = new Discord.Client();
 const fs = require('fs');
 const filters = require(__dirname + '\\config\\filters');
 const config = require(__dirname + '\\config\\config');
+const knex = require('knex')(config.database);
 
 // Login with the bot
 client.login(process.env.DISCORD_TOKEN);

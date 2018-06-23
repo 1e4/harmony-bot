@@ -11,10 +11,10 @@ class BanCommand extends BaseCommand {
             .then(bans => {
                 console.log("Bans", bans);
                 // First try by username
-                let find = bans.find("username", this.args[1]);
+                let find = bans.find(user => this.args[1] === user.username);
                 if (find === null) {
                     // Then by id
-                    find = bans.find("id", this.args[1]);
+                    find = bans.find(user => this.args[1] === user.id);
                 }
 
                 if (find === null) {

@@ -34,7 +34,7 @@ class BaseCommand {
     }
 
     findGuildUser(userId) {
-        let user = this.guild.members.find('displayName', this.args[1]);
+        let user = this.guild.members.find(user => user.displayName === this.args[1]);
 
         if(user)
             return user.user;

@@ -26,9 +26,7 @@ class BaseCommand {
         this.mentions = message.mentions;
 
         // Split the chat into arguments
-        this.args = message.content.split(' ').map((value, index, array) => {
-            return value.toLowerCase()
-        });
+        this.args = message.content.split(' ');
     }
 
     getChannel(channelId) {

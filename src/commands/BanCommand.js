@@ -1,4 +1,4 @@
-let BaseCommand = require(__dirname + '\\BaseCommand');
+let BaseCommand = require(__dirname + '/BaseCommand');
 let config = require('../config/config');
 let Discord = require('discord.js');
 

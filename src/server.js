@@ -24,7 +24,7 @@ client.on('message', function (message) {
 
     // Filter any messages
     for (let i = 0; i < filters.length; i++) {
-        let filterPath = __dirname + `\\filters\\${filters[i]}.js`;
+        let filterPath = __dirname + `/filters/${filters[i]}.js`;
 
         console.log('Filter', filterPath);
 
@@ -46,7 +46,7 @@ client.on('message', function (message) {
 
     let content = message.content,
         command = content.replace('/', '').split(' '),
-        commandPath = `${__dirname + "\\commands\\"}${capitalizeFirstLetter(command[0])}Command.js`;
+        commandPath = `${__dirname + "/commands/"}${capitalizeFirstLetter(command[0])}Command.js`;
 
     // If the command actually exists
     if (fs.existsSync(commandPath)) {

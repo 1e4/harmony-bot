@@ -16,7 +16,13 @@ client.login(process.env.DISCORD_TOKEN);
 client.on('ready', function (event) {
     console.log('Harmony listening in.');
 
-    client.user.setStatus('Keeping the peace');
+    client.user.setActivity('Keeping the peace')
+        .then(() => {
+            console.log('Status Updated')
+        })
+        .catch(error => {
+            console.error("Error setting status", error);
+        });
 });
 
 // Filter for commands and pass them through

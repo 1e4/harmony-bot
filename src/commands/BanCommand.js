@@ -16,7 +16,7 @@ class BanCommand extends BaseCommand {
         // If no user is tagged then fall back to the second parameter
         if(this.mentions.users.array().length === 0)
         {
-            let findUser = this.findGuildUser(this.args[1]);
+            let findUser = this.findGuildUserByUsername(this.args[1]);
 
             if(findUser !== null)
             {
@@ -25,7 +25,7 @@ class BanCommand extends BaseCommand {
             }
             else
             {
-                console.log('Failed to ban, invalid user');
+                console.log('Failed to ban, invalid user', findUser, this.args[1]);
             }
 
         }

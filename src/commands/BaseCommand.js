@@ -13,6 +13,8 @@ class BaseCommand {
         // Setup a shortcut to access the author of the message
         this.author = message.author;
 
+        this.member = message.member;
+
         // Setup a shortcut to access the channel the message was sent in
         this.channel = message.channel;
 
@@ -33,11 +35,20 @@ class BaseCommand {
         return this.allChannels.find('id', channelId)
     }
 
-    findGuildUser(userId) {
-        let user = this.guild.members.find(user => user.displayName === this.args[1]);
+    findGuildUserById(userId) {
+        let user = this.guild.members.find(user => user.user.id === userId);
 
         if(user)
-            return user.user;
+            return user;
+
+        return null;
+    }
+
+    findGuildUserByUsername(username) {
+        let user = this.guild.members.find(user => user.user.username === username);
+
+        if(user)
+            return user;
 
         return null;
     }

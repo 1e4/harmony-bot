@@ -1,5 +1,6 @@
 const filters = [
-    "LinkFilter"
+    "LinkFilter",
+    "GiveXPFilter"
 ];
 
 module.exports = filters;

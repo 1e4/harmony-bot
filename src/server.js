@@ -2,8 +2,8 @@ require('dotenv').config();
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
-const filters = require(__dirname + '\\config\\filters');
-const config = require(__dirname + '\\config\\config');
+const filters = require('./config/filters');
+const config = require('./config/config');
 const { Model } = require('objection');
 const knex = require('knex')(config.database);
 

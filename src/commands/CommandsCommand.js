@@ -12,6 +12,8 @@ class CommandsCommand extends BaseCommand {
             .addField("/help", "This will display some help information and FAQ")
             .addField("/ban", "This will ban the user, use us /ban @user reason, or /ban User reason")
             .addField("/unban", "This will unban the user, use as /unban User")
+            .addField("/profile", "You can view peoples profiles, use as /profile @user or leave @user blank for" +
+                " your own")
             .setColor(0x21a5b4);
 
         this.channel.send({

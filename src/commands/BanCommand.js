@@ -42,7 +42,7 @@ class BanCommand extends BaseCommand {
 
             embed
                 .setAuthor("Harmony Bot")
-                .addField("Action", "/echo")
+                .addField("Action", "/ban")
                 .addField("Content", this.message)
                 .setColor(0xff2020)
                 .setTimestamp()

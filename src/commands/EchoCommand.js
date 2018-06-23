@@ -14,7 +14,7 @@ class EchoCommand extends BaseCommand {
         let embed = new Discord.RichEmbed();
 
         embed
-            .setAuthor("Harmony Bot")
+            .setAuthor(process.env.DISCORD_BOT_NAME)
             .addField("Action", "/echo")
             .addField("Content", this.message)
             .setColor(0xff2020)

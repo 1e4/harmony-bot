@@ -2,6 +2,7 @@
   "dependencies": {
     "discord.js": "^11.3.2",
     "dotenv": "^6.0.0",
+    "knex": "^0.14.6",
     "mysql": "^2.15.0",
     "objection": "^1.1.10"
   }

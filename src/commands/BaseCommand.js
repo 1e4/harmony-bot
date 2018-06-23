@@ -35,8 +35,13 @@ class BaseCommand {
         return this.allChannels.find('id', channelId)
     }
 
-    findUserInMessage(messageId) {
+    findUser(userId) {
+        let user = this.guild.members.find('displayName', this.args[1]);
 
+        if(!user)
+            return user.user;
+
+        return null;
     }
 }
 

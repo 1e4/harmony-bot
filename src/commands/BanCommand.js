@@ -10,13 +10,12 @@ class BanCommand extends BaseCommand {
         // If no user is tagged then fall back to the second parameter
         if(this.mentions.users.array().length === 0)
         {
-            let findUser = this.guild.members.find('displayName', this.args[1]);
+            let findUser = this.findUser(this.args[1]);
 
             if(findUser !== null)
             {
-
-                console.log("Trying to find a user with name as there is no tag", userToBan);
                 userToBan = findUser.user;
+                console.log("Trying to find a user with name as there is no tag", userToBan);
             }
             else
             {

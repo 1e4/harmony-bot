@@ -4,7 +4,11 @@ let config = require('../config/config');
 
 class EchoCommand extends BaseCommand {
     run() {
-        this.channel.send(this.message.replace('/echo ', ''));
+
+        let options = {};
+
+        this.channel.send(this.message.replace('/echo ', ''), options);
+
         console.log('Echoing command');
 
         let embed = new Discord.RichEmbed();

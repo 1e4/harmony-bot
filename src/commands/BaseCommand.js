@@ -41,6 +41,14 @@ class BaseCommand {
 
         return null;
     }
+
+    hasPermission(permissionFlag) {
+        return this.rawMessage.member.hasPermission(permissionFlag);
+    }
+
+    hasRole(roleName) {
+        return this.rawMessage.member.roles.find(role => role.name === roleName);
+    }
 }
 
 module.exports = BaseCommand;

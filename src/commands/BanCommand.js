@@ -5,6 +5,12 @@ let Discord = require('discord.js');
 class BanCommand extends BaseCommand {
     run() {
 
+        if(!this.hasPermission(Discord.Permissions.FLAGS.BAN_MEMBERS))
+        {
+            console.log('Invalid permissions');
+            return;
+        }
+
         let userToBan = null;
 
         // If no user is tagged then fall back to the second parameter

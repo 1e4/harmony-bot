@@ -12,9 +12,9 @@ class HelpCommand extends BaseCommand {
             .setAuthor("Harmony Help Bot")
             .setDescription("Below you will find a whole some useful information as well as an FAQ, if you are" +
                 " looking for commands you should use /commands")
-            .setColor(0xff2020);
+            .setColor(0x21a5b4);
 
-        this.getChannel(this.channel.id).send({
+        this.channel.send({
             embed: embed
         })
     }

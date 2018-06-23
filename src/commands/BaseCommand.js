@@ -35,10 +35,10 @@ class BaseCommand {
         return this.allChannels.find('id', channelId)
     }
 
-    findUser(userId) {
+    findGuildUser(userId) {
         let user = this.guild.members.find('displayName', this.args[1]);
 
-        if(!user)
+        if(user)
             return user.user;
 
         return null;

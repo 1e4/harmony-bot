@@ -1,6 +1,6 @@
 let BaseCommand = require(__dirname + '\\BaseCommand');
 let Discord = require('discord.js');
-let config = require('../config/config')
+let config = require('../config/config');
 
 class EchoCommand extends BaseCommand {
     run() {

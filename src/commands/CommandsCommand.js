@@ -9,7 +9,7 @@ class CommandsCommand extends BaseCommand {
         let embed = new Discord.RichEmbed();
 
         embed
-            .setAuthor("Harmony Command Bot")
+            .setAuthor(`${process.env.DISCORD_BOT_NAME} Command Bot`)
             .setDescription("Below you will find a whole host of different commands that you can use")
             .addField("/help", "This will display some help information and FAQ")
             .addField("/ban", "This will ban the user, use us /ban @user reason, or /ban User reason")

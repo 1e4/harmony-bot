@@ -60,6 +60,10 @@ class BaseCommand {
     hasRole(roleName) {
         return this.rawMessage.member.roles.find(role => role.name === roleName);
     }
+
+    rand(min, max) {
+        return Math.floor(Math.random() * (parseInt(max) - parseInt(min) + 1) + parseInt(min))
+    }
 }
 
 module.exports = BaseCommand;

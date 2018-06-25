@@ -6,6 +6,12 @@ class User extends Model {
         return 'users';
     }
 
+    static findByUserId(user_id) {
+        return this.query()
+            .where("user_id", "=", user_id)
+            .first();
+    }
+
 }
 
 module.exports = User;

@@ -38,6 +38,7 @@ class GiveXPFilter {
 
         if ((profile.experience + randXp) >= (profile.level * 250)) {
             update.level = profile.level + 1;
+            update.coins = parseInt(profile.coins) + rand(5,10)
         }
 
         update.experience = (profile.experience + randXp);
@@ -56,6 +57,10 @@ class GiveXPFilter {
 
     }
 
+}
+
+function rand (min,max) {
+    return Math.floor(Math.random() * (parseInt(max) - parseInt(min) + 1) + parseInt(min))
 }
 
 function mt_rand () {

@@ -12,6 +12,11 @@ class User extends Model {
             .first();
     }
 
+    static async give(user_id, gift) {
+        let profile = await User.query().patch(gift)
+            .where('id', '=', profile.id);
+    }
+
 }
 
 module.exports = User;

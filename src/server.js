@@ -76,6 +76,22 @@ client.on('message', function (message) {
     }
 });
 
+client.on("guildMemberAdd", async (member) => {
+    let profile = await User.query()
+        .where('user_id', member.id)
+        .first();
+
+    if (profile === undefined) {
+        profile = await User.query()
+            .insert({
+                user_id: member.id,
+                level: 1,
+                experience: 0,
+                coins: 0,
+            });
+    }
+});
+
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }

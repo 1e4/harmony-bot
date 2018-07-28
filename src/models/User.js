@@ -13,8 +13,8 @@ class User extends Model {
     }
 
     static async give(user_id, gift) {
-        let profile = await User.query().patch(gift)
-            .where('id', '=', profile.id);
+        await User.query().patch(gift)
+            .where('id', '=', user_id);
     }
 
 }

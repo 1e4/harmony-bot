@@ -5,6 +5,7 @@ const fs = require('fs');
 const config = require('./config/config');
 const {Model} = require('objection');
 const knex = require('knex')(config.database);
+const User = require('./models/User');
 
 const commands = {
     ban: require("./commands/BanCommand"),
@@ -82,7 +83,7 @@ client.on("guildMemberAdd", async (member) => {
         .first();
 
     if (profile === undefined) {
-        profile = await User.query()
+        await User.query()
             .insert({
                 user_id: member.id,
                 level: 1,

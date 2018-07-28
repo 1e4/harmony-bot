@@ -43,7 +43,7 @@ class GiveXPFilter {
 
         update.experience = (profile.experience + randXp);
 
-        profile = await User.give(profile.id, update)
+        await User.give(profile.id, update);
 
         if(update.level)
         {

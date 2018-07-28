@@ -2,15 +2,38 @@ require('dotenv').config();
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
-const filters = require('./config/filters');
 const config = require('./config/config');
-const { Model } = require('objection');
+const {Model} = require('objection');
 const knex = require('knex')(config.database);
 
+const commands = {
+    ban: require("./commands/BanCommand"),
+    unban: require("./commands/UnbanCommand"),
+    commands: require("./commands/CommandsCommand"),
+    echo: require("./commands/EchoCommand"),
+    flip: require("./commands/FlipCommand"),
+    help: require("./commands/HelpCommand"),
+    profile: require("./commands/ProfileCommand"),
+};
+
+const filters = [
+    require('./filters/LinkFilter'),
+    require('./filters/GiveXPFilter')
+];
+
+
+// Load knex
 Model.knex(knex);
 
 // Login with the bot
-client.login(process.env.DISCORD_TOKEN);
+client.login(process.env.DISCORD_TOKEN)
+    .then(res => {
+        console.log("Bot logged in");
+    })
+    .catch(err => {
+        console.error('Invalid token ')
+        console.log(process.env);
+    });
 
 // Once ready give some feedback
 client.on('ready', function (event) {
@@ -28,43 +51,28 @@ client.on('ready', function (event) {
 // Filter for commands and pass them through
 client.on('message', function (message) {
 
-    // Filter any messages
+    let content = message.content,
+        command = content.replace('/', '').split(' ');
+
+    // Filter the message
     for (let i = 0; i < filters.length; i++) {
-        let filterPath = __dirname + `/filters/${filters[i]}.js`;
-
-        console.log('Filter', filterPath);
-
-        // If the command actually exists
-        if (fs.existsSync(filterPath)) {
-            let f = require(filterPath),
-                c = new f(message);
-
-            c.filter();
-        }
-        else {
-            console.log('No filter found', filterPath);
-        }
+        // If the filter actually exists
+        let c = new filters[i](message);
+        c.filter();
     }
 
-    // If it's not a command or the author is a bot don't do anything
+// If it's not a command or the author is a bot don't do anything
     if (!message.content.startsWith(config.prefix) || message.author.bot === true)
         return;
 
-    let content = message.content,
-        command = content.replace('/', '').split(' '),
-        commandPath = `${__dirname + "/commands/"}${capitalizeFirstLetter(command[0])}Command.js`;
-
     // If the command actually exists
-    if (fs.existsSync(commandPath)) {
-        let m = require(commandPath),
-            c = new m(message);
+    if (command[0] in commands) {
+        let c = new commands[command[0]](message);
 
         c.run();
-
-
     }
     else {
-        console.log('No command found', commandPath);
+        console.log('No command found', command[0]);
     }
 });
 

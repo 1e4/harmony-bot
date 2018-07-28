@@ -1,4 +1,4 @@
-let BaseCommand = require(__dirname + '/BaseCommand');
+let BaseCommand = require('./BaseCommand');
 let config = require('../config/config');
 let Discord = require('discord.js');
 let User = require('../models/User');
@@ -37,8 +37,6 @@ class FlipCommand extends BaseCommand {
             this.channel.send('Example: "/flip 50 tails" would bet 50 coins on tails');
             return;
         }
-
-
 
         // Check if a valid cost
         if (!cost || cost === 0) {

@@ -4,6 +4,7 @@ let Discord = require('discord.js');
 
 class CommandsCommand extends BaseCommand {
     run() {
+
         let embed = new Discord.RichEmbed();
 
         embed
